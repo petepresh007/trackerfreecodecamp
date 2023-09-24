@@ -91,7 +91,7 @@ router.route("/:_id/logs")
         const excercises = await excercise.find(filter).limit(+limit ?? 500);
 
         /**MAP THROUGH*/
-        const logs = excercises.map(e => ({
+        const log = excercises.map(e => ({
             description: e.description,
             duration: e.duration,
             date: e.date.toDateString()
@@ -102,7 +102,7 @@ router.route("/:_id/logs")
                 username: users.username,
                 count: excercises.length,
                 _id: users._id,
-                logs: logs
+                log: log
             })
 
         }
